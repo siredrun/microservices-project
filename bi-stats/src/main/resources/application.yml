@@ -1,0 +1,7 @@
+server:
+  port: 8291
+  servlet:
+    context-path: /bi
+spring:
+  profiles:
+    active: test

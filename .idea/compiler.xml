@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Annotation profile for microservices-project" enabled="true">
+        <sourceOutputDir name="../../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="db-mysql" />
+        <module name="db-redis" />
+      </profile>
+      <profile name="Annotation profile for bi-stats" enabled="true">
+        <sourceOutputDir name="../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="bi-stats" />
+      </profile>
+      <profile name="Annotation profile for config-server" enabled="true">
+        <sourceOutputDir name="../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="config-server" />
+      </profile>
+      <profile name="Annotation profile for common" enabled="true">
+        <sourceOutputDir name="../target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="common" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bi-stats" target="1.5" />
+      <module name="common" target="1.5" />
+      <module name="config-server" target="1.5" />
+      <module name="db" target="1.5" />
+      <module name="db-mysql" target="1.5" />
+      <module name="db-redis" target="1.5" />
+      <module name="microservices-project" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

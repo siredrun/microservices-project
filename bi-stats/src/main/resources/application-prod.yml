@@ -1,0 +1,76 @@
+spring:
+  datasource:
+    username: BI
+    password: bjxBJX123!@#
+    url: jdbc:mysql://172.26.66.115:3306/data_centre?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      #=================连接池配置start================
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 100
+      max-open-prepared-statements: 100 #和上面的等价
+      validation-query: SELECT 1
+      validation-query-timeout: 2000
+      test-on-borrow: false
+      druid.test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      filters: config,stat,wall,log4j
+      #=================连接池配置 end================
+
+      #=============WebStatFilter配置start===========
+      web-stat-filter.enabled: true #是否启用StatFilter默认值false
+      web-stat-filter.url-pattern: /*
+      web-stat-filter.exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+      web-stat-filter.profile-enable: true
+      #=============WebStatFilter配置 end============
+
+      #=============StatViewServlet配置start=========
+      stat-view-servlet.enabled: true
+      stat-view-servlet.url-pattern: /druid/*
+      stat-view-servlet.reset-enable: false
+      stat-view-servlet.login-username: admin
+      stat-view-servlet.login-password: admin
+      stat-view-servlet.allow: # IP白名单
+      stat-view-servlet.deny:  # IP黑名单
+      #=============StatViewServlet配置  end=========
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 172.26.66.117:8848,172.26.66.119:8848,172.26.66.118:8848
+#mybatis
+mybatis-plus:
+  mapper-locations: classpath*:/db-cloud/**/**/*.xml
+  global-config:
+    #数据库相关配置
+    db-config:
+      #主键类型  AUTO:"数据库ID自增", INPUT:"用户输入ID", ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
+      id-type: AUTO
+      #驼峰下划线转换
+      column-underline: true
+      logic-delete-value: -1
+      logic-not-delete-value: 0
+    banner: false
+  #原生配置
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true
+    jdbc-type-for-null: 'null'
+
+#swagger开关
+swagger:
+  enabled: false
+
+com:
+  baijixiu:
+    sign_switch: true # 验签开关
+    secret_id: jqajUZ78EiiNFK0a
+    secret_key: JPcehJ8gyacaq3MM
+
+

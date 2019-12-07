@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.baijiaxiu.services.cloud.db.mapper.bi.ReportKpiMapper">
+
+
+    <select id="getHumanEffectRateNumerator" resultType="double">
+        select count(t1.city_id) from (SELECT DISTINCT osi.city_id,omd.worker_id,count( * ) AS cnt FROM
+        order_maintain_detail omd,order_service_info osi WHERE osi.order_status <![CDATA[<=]]> 11 and
+        omd.order_id=osi.order_id and date_format(osi.create_time, '%Y-%m-%d') BETWEEN #{startDate} and #{endDate} and
+        city_id = #{cityId}
+        <choose>
+            <when test="timeDIff !=null ">
+                GROUP BY osi.city_id,omd.worker_id HAVING count( * ) >8.3 * #{timeDIff})t1
+            </when>
+            <otherwise>
+                GROUP BY osi.city_id,omd.worker_id HAVING count( * ) >8.3)t1
+            </otherwise>
+        </choose>
+    </select>
+
+
+    <select id="getHumanEffectRateDenominator" resultType="double">
+        select count(t1.city_id) from (SELECT DISTINCT osi.city_id,omd.worker_id FROM
+        order_maintain_detail omd,order_service_info osi
+        WHERE omd.order_id=osi.order_id and date_format(osi.create_time, '%Y-%m-%d') BETWEEN #{startDate}  and #{endDate} and city_id = #{cityId}
+        GROUP BY osi.city_id,omd.worker_id)t1
+    </select>
+</mapper>

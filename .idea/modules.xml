@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/bi-stats/bi-stats.iml" filepath="$PROJECT_DIR$/bi-stats/bi-stats.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/db/db.iml" filepath="$PROJECT_DIR$/db/db.iml" />
+      <module fileurl="file://$PROJECT_DIR$/db/db-mysql/db-mysql.iml" filepath="$PROJECT_DIR$/db/db-mysql/db-mysql.iml" />
+      <module fileurl="file://$PROJECT_DIR$/db/db-redis/db-redis.iml" filepath="$PROJECT_DIR$/db/db-redis/db-redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservices-project.iml" filepath="$PROJECT_DIR$/microservices-project.iml" />
+    </modules>
+  </component>
+</project>
